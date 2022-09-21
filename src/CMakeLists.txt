@@ -39,10 +39,28 @@ if(HAVE_IMAGEMAGICK)
     add_definitions(-fexceptions)
 endif(HAVE_IMAGEMAGICK)
 
+set(kcm_grub2_SRCS ${kcm_grub2_SRCS} resources.qrc)
+
 # Build & Link
 include_directories(${kcm_grub2_INCLUDE_DIRS})
 add_library(kcm_grub2 MODULE ${kcm_grub2_SRCS})
-target_link_libraries(kcm_grub2 ${kcm_grub2_LINK_LIBS} Qt5::Core Qt5::Widgets KF5::Auth KF5::I18n KF5::KCMUtils KF5::KIOCore KF5::KIOWidgets KF5::Solid)
+target_link_libraries(kcm_grub2 ${kcm_grub2_LINK_LIBS} 
+    Qt5::Core 
+    Qt5::Widgets
+    Qt5::Qml
+    Qt5::Quick
+    Qt5::QuickControls2
+    Qt5::Svg
+    KF5::Auth 
+    KF5::I18n 
+    KF5::KCMUtils 
+    KF5::KIOCore 
+    KF5::KIOWidgets 
+    KF5::Solid 
+
+    KF5::Declarative  
+    
+    KF5::I18n)
 
 # Install
 install(TARGETS kcm_grub2 DESTINATION ${PLUGIN_INSTALL_DIR})

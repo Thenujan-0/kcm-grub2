@@ -17,7 +17,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
 
 include(GRUBPaths)
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Gui Widgets)
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg Widgets)
 
 find_package(KF5 REQUIRED COMPONENTS
     Auth
@@ -25,6 +25,7 @@ find_package(KF5 REQUIRED COMPONENTS
     KCMUtils
     KIO
     Solid
+    Declarative
 )
 
 # Qt
