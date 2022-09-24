@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+File=kcm_grub2.kcfg
+ClassName=Grub2
+IncludeFiles=grubdata.h
+DefaultValueGetters=true
+GenerateProperties=true
+ParentInConstructor=true
+Mutators=true

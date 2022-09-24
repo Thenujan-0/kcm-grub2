@@ -12,17 +12,22 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
+#include <KQuickAddons/ConfigModule>
+
+//Ui
+// #include "ui_kcm_grub2.h"
+
+#include <KPluginFactory>
+
 
 #include "kcm_grub2.h"
 
 
-
-#include <KPluginFactory>
-
 K_PLUGIN_CLASS_WITH_JSON(KCMGRUB2, "kcm_grub2.json")
 
 KCMGRUB2::KCMGRUB2(QObject *parent, const KPluginMetaData &data, const QVariantList &)
-    : KQuickAddons::ConfigModule(parent, data)
+    : KQuickAddons::ConfigModule(parent, data),
+    m_model(new GrubData(this))
     
 {
     setButtons(Help);
@@ -38,14 +43,14 @@ KCMGRUB2::~KCMGRUB2()
 {
 }
 
-// KCMGRUB2Model *KCMGRUB2::model() const
-// {
-//     return m_model;
-// }
+KCMGRUB2Model *KCMGRUB2::model() const
+{
+    return m_model;
+}
 
 void KCMGRUB2::load()
 {
-    // m_model->load();
+    m_model->load();
 }
 
 void KCMGRUB2::defaults()

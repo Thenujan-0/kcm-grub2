@@ -45,7 +45,7 @@
             "desktop"
         ],
         "Icon": "system-run",
-        "Name": "Autostart",
+        "Name": "Grub2",
         "Name[ar]": "بدء تلقائي",
         "Name[az]": "Avtomatik başlama",
         "Name[bg]": "Автоматично стартиране",
@@ -90,8 +90,7 @@
         "Name[zh_CN]": "自动启动",
         "Name[zh_TW]": "自動啟動"
     },
-    "X-DocPath": "kcontrol/autostart/index.html",
-    "X-KDE-Keywords": "Autostart Manager,system startup,plasma start,cron,auto,start,start up,boot,load,session,startup,launch,login",
+    "X-KDE-Keywords": "grub,grub2,plasma start,cron,auto,start,start up,boot,load,session,startup,launch,login",
     "X-KDE-Keywords[az]": "Avtobaşlama meneceri,sistemin açılması,plasma'nın açılması,cron,avtomatik,başlama,başladılma,önyükləmə,yüklənmə,sessiya,işə düşmə,giriş",
     "X-KDE-Keywords[ca]": "Gestor de l'inici automàtic,inici del sistema,inici del Plasma,cron,automàtic,inici,engegar,engegada,càrrega,sessió,llançament,inici de sessió",
     "X-KDE-Keywords[es]": "Gestor de inicio automático,inicio del sistema,inicio de plasma,cron,automático,inicio,arranque,cargar,sesión,lanzamiento,lanzar,inicio de sesión",

@@ -20,8 +20,12 @@ GrubData::GrubData(QObject *parent)
     : QAbstractListModel(parent)
 {
 //      showMenu = true;
-    GrubData::load();
+    // GrubData::load();
     qWarning()<<"loaded everything";
-    qWarning()<<m_osEntries;
+    // qWarning()<<m_osEntries;
+}
+
+void GrubData::load(){
+    qWarning()<<"Lets see if its printed 😄😄😄😄 ";
 }
 

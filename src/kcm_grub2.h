@@ -17,13 +17,7 @@
 
 
 
-//Qt
-#include <QBitArray>
 
-//KDE
-#include <KCModule>
-
-#include "grubdata.h"
 
 namespace KAuth
 {
@@ -37,9 +31,18 @@ using namespace KAuth;
 #include <KQuickAddons/ConfigModule>
 
 
+//Qt
+#include <QBitArray>
+
+//KDE
+#include <KCModule>
+
+#include "grubdata.h"
+
 class KCMGRUB2 : public KQuickAddons::ConfigModule
 {
     Q_OBJECT
+    Q_PROPERTY(GrubData *model READ model CONSTANT)
 
 public:
     explicit KCMGRUB2(QObject *parent, const KPluginMetaData &data, const QVariantList &);
@@ -49,9 +52,11 @@ public:
     void save() override;
     void defaults() override;
 
+    GrubData *model() const;
+
 
 private:
-    QHash <QString,QString> m_model;
+    GrubData *m_model;
 };
 
 

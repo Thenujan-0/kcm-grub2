@@ -33,10 +33,10 @@
 //Project
 #include "../common.h"
 #include "../config.h"
-#if HAVE_HD
-#undef slots
-#include <hd.h>
-#endif
+// #if HAVE_HD
+// #undef slots
+// #include <hd.h>
+// #endif
 
 //The $PATH environment variable is emptied by D-Bus activation,
 //so let's provide a sane default. Needed for os-prober to work.
@@ -210,27 +210,31 @@ ActionReply Helper::load(QVariantMap args)
             reply.addData(QStringLiteral("memtestOn"), (bool)(QFile::permissions(grubMemtestPath()) & (QFile::ExeOwner | QFile::ExeGroup | QFile::ExeOther)));
         }
     }
-#if HAVE_HD
-    if (operations.testFlag(Vbe)) {
-        QStringList gfxmodes;
-        hd_data_t hd_data;
-        memset(&hd_data, 0, sizeof(hd_data));
-        hd_t *hd = hd_list(&hd_data, hw_framebuffer, 1, NULL);
-        for (hd_res_t *res = hd->res; res; res = res->next) {
-            if (res->any.type == res_framebuffer) {
-                gfxmodes += QString(QLatin1String("%1x%2x%3")).arg(QString::number(res->framebuffer.width), QString::number(res->framebuffer.height), QString::number(res->framebuffer.colorbits));
-            }
-        }
-        hd_free_hd_list(hd);
-        hd_free_hd_data(&hd_data);
-        reply.addData(QLatin1String("gfxmodes"), gfxmodes);
-    }
-#endif
+// #if HAVE_HD
+//     if (operations.testFlag(Vbe)) {
+//         QStringList gfxmodes;
+//         hd_data_t hd_data;
+//         memset(&hd_data, 0, sizeof(hd_data));
+//         hd_t *hd = hd_list(&hd_data, hw_framebuffer, 1, NULL);
+//         for (hd_res_t *res = hd->res; res; res = res->next) {
+//             if (res->any.type == res_framebuffer) {
+//                 gfxmodes += QString(QLatin1String("%1x%2x%3")).arg(QString::number(res->framebuffer.width), QString::number(res->framebuffer.height), QString::number(res->framebuffer.colorbits));
+//             }
+//         }
+//         hd_free_hd_list(hd);
+//         hd_free_hd_data(&hd_data);
+//         reply.addData(QLatin1String("gfxmodes"), gfxmodes);
+//     }
+// #endif
+
     if (operations.testFlag(Locales)) {
         reply.addData(QStringLiteral("locales"), QDir(grubLocalePath()).entryList(QStringList() << QStringLiteral("*.mo"), QDir::Files).replaceInStrings(QRegExp(QLatin1String("\\.mo$")), QString()));
     }
+
     return reply;
+
 }
+
 ActionReply Helper::save(QVariantMap args)
 {
     ActionReply reply;
